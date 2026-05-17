@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>VAremoteimpact | Executive Virtual Assistant for Founders & CEOs</title>
+<meta name="description" content="Executive Virtual Assistant for Founders, CEOs and Consultants in USA, Canada, UK & Europe. Research, operations, and executive support — remote, reliable, results-driven."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --dk:#0d311d;--dk2:#0a2617;--dk3:#163d25;
+  --cr:#fdf2eb;--cr2:#f5e6d4;
+  --gd:#c9a84c;--gd2:#e8c87a;
+  --mt:#4a6355;--wh:#fff;
+  --sh:0 8px 40px rgba(13,49,29,.12);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--cr);color:var(--dk);line-height:1.7;overflow-x:hidden;}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem;}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.rv.on{opacity:1;transform:translateY(0);}
+.rvl{opacity:0;transform:translateX(-28px);transition:opacity .7s ease,transform .7s ease;}
+.rvl.on{opacity:1;transform:translateX(0);}
+.rvr{opacity:0;transform:translateX(28px);transition:opacity .7s ease,transform .7s ease;}
+.rvr.on{opacity:1;transform:translateX(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+/* buttons */
+.bp{display:inline-flex;align-items:center;gap:.5rem;background:var(--gd);color:var(--dk);padding:.95rem 2.1rem;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;border:2px solid var(--gd);transition:background .2s,transform .15s,box-shadow .2s;letter-spacing:.02em;}
+.bp:hover{background:var(--gd2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35);}
+.bo{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--cr);padding:.95rem 2.1rem;border-radius:50px;font-weight:500;font-size:.95rem;text-decoration:none;border:1.5px solid rgba(253,242,235,.4);transition:border-color .2s,background .2s;}
+.bo:hover{border-color:var(--cr);background:rgba(253,242,235,.08);}
+.bd{display:inline-flex;align-items:center;gap:.5rem;background:var(--dk);color:var(--cr);padding:.95rem 2.1rem;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;border:2px solid var(--dk);transition:background .2s,transform .15s;}
+.bd:hover{background:var(--dk3);transform:translateY(-2px);}
+.bgo{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--gd);padding:.85rem 1.75rem;border-radius:50px;font-weight:600;font-size:.9rem;text-decoration:none;border:1.5px solid var(--gd);transition:background .2s,color .2s,transform .15s;}
+.bgo:hover{background:var(--gd);color:var(--dk);transform:translateY(-2px);}
+
+/* NAV */
+#nav{position:fixed;top:0;width:100%;z-index:200;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:72px;transition:background .35s,box-shadow .35s;}
+#nav.sc{background:rgba(13,49,29,.97);backdrop-filter:blur(12px);box-shadow:0 2px 24px rgba(0,0,0,.2);}
+.nlogo{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
+.nmark{display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--gd);border-radius:9px;font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--dk);}
+.ntxt{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--cr);letter-spacing:.01em;}
+.ntxt span{color:var(--gd);}
+.nlinks{display:flex;align-items:center;gap:2rem;list-style:none;}
+.nlinks a{color:rgba(253,242,235,.75);text-decoration:none;font-size:.83rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;transition:color .2s;}
+.nlinks a:hover{color:var(--cr);}
+.ncta{background:var(--gd);color:var(--dk)!important;padding:.5rem 1.3rem;border-radius:50px;font-weight:600!important;transition:background .2s,transform .15s!important;}
+.ncta:hover{background:var(--gd2)!important;transform:scale(1.03);}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hbg span{display:block;width:24px;height:2px;background:var(--cr);border-radius:2px;transition:.3s;}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--dk);display:flex;align-items:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden;}
+.h-orb{position:absolute;border-radius:50%;pointer-events:none;}
+.h-orb1{width:750px;height:750px;top:-250px;right:-220px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);}
+.h-orb2{width:450px;height:450px;bottom:-180px;left:-120px;background:radial-gradient(circle,rgba(201,168,76,.05) 0%,transparent 70%);}
+.h-line{position:absolute;pointer-events:none;width:100%;height:1px;background:rgba(253,242,235,.04);}
+.hl1{top:32%;}.hl2{top:65%;}
+.h-star{position:absolute;color:var(--gd);animation:sp 3s ease-in-out infinite;}
+.hs1{top:18%;left:4%;font-size:1.1rem;animation-delay:0s;}
+.hs2{top:72%;right:7%;font-size:.75rem;animation-delay:1.2s;}
+.hs3{top:38%;right:22%;font-size:.6rem;animation-delay:2.1s;}
+@keyframes sp{0%,100%{opacity:.35;transform:scale(1);}50%{opacity:.9;transform:scale(1.4);}}
+.h-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:center;position:relative;z-index:2;}
+.h-pill{display:inline-flex;align-items:center;gap:.45rem;background:rgba(201,168,76,.13);border:1px solid rgba(201,168,76,.32);color:var(--gd);padding:.38rem 1rem;border-radius:50px;font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.4rem;}
+.h-title{font-family:'Playfair Display',serif;font-size:clamp(2.3rem,5vw,3.5rem);font-weight:700;line-height:1.15;color:var(--cr);margin-bottom:1.2rem;}
+.h-title em{color:var(--gd);font-style:normal;}
+.h-sub{font-size:1.05rem;color:rgba(253,242,235,.72);max-width:510px;margin-bottom:2rem;line-height:1.85;}
+.h-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.trust-row{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;}
+.tr-div{width:1px;height:26px;background:rgba(253,242,235,.18);}
+.tr-item{display:flex;align-items:center;gap:.4rem;}
+.tr-item span{font-size:.72rem;color:rgba(253,242,235,.5);font-weight:500;}
+.flags{display:flex;gap:.25rem;font-size:1.1rem;}
+
+/* hero right */
+.h-right{display:flex;flex-direction:column;gap:1.25rem;align-items:center;}
+.h-photo{width:100%;max-width:320px;height:380px;background:rgba(253,242,235,.04);border:1.5px solid rgba(253,242,235,.1);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;position:relative;overflow:hidden;}
+.h-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.06) 0%,transparent 60%);}
+.h-photo-init{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;color:rgba(201,168,76,.18);}
+.h-photo-lbl{font-size:.7rem;color:rgba(253,242,235,.35);text-align:center;line-height:1.5;padding:0 1.5rem;}
+.h-photo-badge{position:absolute;bottom:1.1rem;left:1.1rem;background:var(--gd);color:var(--dk);padding:.38rem .85rem;border-radius:50px;font-size:.7rem;font-weight:700;letter-spacing:.05em;}
+.h-photo-flag{position:absolute;top:1rem;right:1rem;background:rgba(13,49,29,.85);border:1px solid rgba(201,168,76,.28);border-radius:8px;padding:.38rem .55rem;font-size:.9rem;letter-spacing:2px;}
+
+/* hero logo SVG */
+.h-logo-svg{width:100%;max-width:320px;opacity:.92;}
+
+.h-stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;width:100%;max-width:320px;}
+.h-stat{background:rgba(253,242,235,.05);border:1px solid rgba(253,242,235,.09);border-radius:14px;padding:1rem;text-align:center;}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--gd);line-height:1;}
+.stat-l{font-size:.68rem;color:rgba(253,242,235,.48);margin-top:3px;}
+
+/* TRUST BAR */
+#tbar{background:var(--dk2);padding:1.1rem 0;border-top:1px solid rgba(253,242,235,.07);}
+.tbar-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;}
+.tbar-item{display:flex;align-items:center;gap:.45rem;font-size:.75rem;color:rgba(253,242,235,.4);font-weight:500;letter-spacing:.07em;text-transform:uppercase;}
+
+/* SHARED SECTION STYLES */
+.section{padding:6rem 0;}
+.sec-eye{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gd);margin-bottom:.7rem;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--dk);line-height:1.2;margin-bottom:.7rem;}
+.sec-sub{font-size:1rem;color:var(--mt);max-width:520px;}
+.tc{text-align:center;}
+.tc .sec-sub{margin:0 auto;}
+
+/* PAIN */
+#pain{background:var(--cr);}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1rem;margin:2.5rem 0;}
+.pain-card{background:var(--wh);border:1.5px solid rgba(13,49,29,.07);border-radius:18px;padding:1.5rem 1.2rem;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s;cursor:default;}
+.pain-card:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:rgba(201,168,76,.35);}
+.pc-icon{font-size:2rem;display:block;margin-bottom:.7rem;}
+.pc-text{font-size:.9rem;font-weight:600;color:var(--dk);line-height:1.4;}
+.pc-sub{font-size:.78rem;color:var(--mt);margin-top:.35rem;line-height:1.5;}
+.pain-cta{text-align:center;}
+
+/* WHY */
+#why{background:var(--dk);}
+#why .sec-title{color:var(--cr);}
+#why .sec-sub{color:rgba(253,242,235,.58);}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3rem;}
+.why-card{background:rgba(253,242,235,.045);border:1px solid rgba(253,242,235,.09);border-radius:22px;padding:2rem;transition:background .25s,border-color .25s,transform .25s;position:relative;overflow:hidden;}
+.why-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.06) 0%,transparent 60%);opacity:0;transition:opacity .3s;}
+.why-card:hover{background:rgba(253,242,235,.075);border-color:rgba(201,168,76,.35);transform:translateY(-4px);}
+.why-card:hover::before{opacity:1;}
+.wy-icon{width:54px;height:54px;background:rgba(201,168,76,.13);border:1px solid rgba(201,168,76,.22);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.45rem;margin-bottom:1.2rem;}
+.wy-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--cr);margin-bottom:.3rem;}
+.wy-sub{font-size:.75rem;color:var(--gd);font-weight:600;margin-bottom:.7rem;letter-spacing:.04em;}
+.wy-desc{font-size:.84rem;color:rgba(253,242,235,.58);line-height:1.75;}
+
+/* SERVICES */
+#services{background:var(--cr2);}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin:3rem 0 2.5rem;}
+.svc-card{background:var(--wh);border:1px solid rgba(13,49,29,.08);border-radius:22px;padding:2rem;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;}
+.svc-card::after{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gd),var(--gd2));transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+.svc-card:hover{transform:translateY(-5px);box-shadow:var(--sh);}
+.svc-card:hover::after{transform:scaleX(1);}
+.svc-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:rgba(13,49,29,.07);line-height:1;margin-bottom:.4rem;}
+.svc-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--dk);margin-bottom:.4rem;}
+.svc-outcome{font-size:.83rem;color:var(--gd);font-weight:600;margin-bottom:.7rem;font-style:italic;}
+.svc-desc{font-size:.84rem;color:var(--mt);line-height:1.75;margin-bottom:.9rem;}
+.svc-list{list-style:none;}
+.svc-list li{font-size:.78rem;color:var(--mt);padding:.22rem 0 .22rem 1.1rem;position:relative;}
+.svc-list li::before{content:'✦';position:absolute;left:0;color:var(--gd);font-size:.52rem;top:.5rem;}
+.svc-cta{text-align:center;}
+
+/* AUTHORITY */
+#auth{background:var(--dk);padding:5rem 0;}
+#auth .sec-title{color:var(--cr);}
+.auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem;}
+.auth-quote{border-left:3px solid var(--gd);padding-left:1.5rem;margin-bottom:2rem;}
+.auth-quote p{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:rgba(253,242,235,.82);line-height:1.85;}
+.auth-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;}
+.auth-tag{background:rgba(201,168,76,.11);border:1px solid rgba(201,168,76,.22);color:var(--gd);border-radius:50px;padding:.32rem .85rem;font-size:.73rem;font-weight:500;}
+.cred-cards{display:flex;flex-direction:column;gap:.85rem;}
+.cred-card{background:rgba(253,242,235,.045);border:1px solid rgba(253,242,235,.09);border-radius:14px;padding:1.2rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:background .2s;}
+.cred-card:hover{background:rgba(253,242,235,.08);}
+.cred-ico{font-size:1.5rem;flex-shrink:0;margin-top:2px;}
+.cred-title{font-size:.9rem;font-weight:600;color:var(--cr);margin-bottom:2px;}
+.cred-sub{font-size:.75rem;color:rgba(253,242,235,.45);}
+.proof-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:2rem;}
+.proof-n{text-align:center;padding:1.2rem .7rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.18);border-radius:14px;}
+.pn-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gd);line-height:1;}
+.pn-lbl{font-size:.68rem;color:rgba(253,242,235,.45);margin-top:4px;line-height:1.4;}
+
+/* PROCESS */
+#process{background:var(--cr);padding:5rem 0;}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem;position:relative;}
+.proc-steps::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gd),transparent);z-index:0;}
+.proc-step{text-align:center;position:relative;z-index:1;}
+.ps-num{width:54px;height:54px;background:var(--dk);color:var(--gd);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;border:2px solid var(--gd);}
+.ps-title{font-weight:600;color:var(--dk);font-size:.88rem;margin-bottom:.38rem;}
+.ps-desc{font-size:.77rem;color:var(--mt);line-height:1.6;}
+
+/* FINAL CTA */
+#fcta{background:var(--dk);padding:7rem 0;text-align:center;position:relative;overflow:hidden;}
+#fcta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%);}
+/* Decorative 4-pointed star background */
+#fcta::after{content:'✦';position:absolute;font-size:20rem;color:rgba(201,168,76,.025);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;line-height:1;}
+.fcta-inner{position:relative;z-index:2;}
+.fcta-eye{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gd);margin-bottom:1rem;display:block;}
+.fcta-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:var(--cr);line-height:1.2;margin-bottom:1rem;}
+.fcta-sub{font-size:1rem;color:rgba(253,242,235,.62);max-width:460px;margin:0 auto 2.5rem;}
+.fcta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.soc-row{display:flex;align-items:center;justify-content:center;gap:1.1rem;margin-top:2.5rem;}
+.soc-link{width:42px;height:42px;background:rgba(253,242,235,.07);border:1px solid rgba(253,242,235,.13);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.1rem;transition:background .2s,transform .15s;}
+.soc-link:hover{background:rgba(253,242,235,.14);transform:scale(1.1);}
+
+/* FOOTER */
+footer{background:#071f11;padding:2rem;text-align:center;border-top:1px solid rgba(253,242,235,.05);}
+footer p{font-size:.77rem;color:rgba(253,242,235,.32);margin-bottom:.4rem;}
+footer a{color:rgba(253,242,235,.42);text-decoration:none;}
+footer a:hover{color:var(--gd);}
+
+/* FLOATING WA */
+.wa{position:fixed;bottom:2rem;right:2rem;z-index:1000;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s;text-decoration:none;}
+.wa:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.5);}
+.wa svg{width:28px;height:28px;fill:#fff;}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nlinks{display:none;flex-direction:column;position:absolute;top:72px;left:0;width:100%;background:rgba(13,49,29,.98);padding:1.5rem 2rem;gap:1.25rem;}
+  .nlinks.open{display:flex;}
+  .hbg{display:flex;}
+  .h-inner{grid-template-columns:1fr;}
+  .h-right{display:none;}
+  .why-grid,.svc-grid,.auth-grid{grid-template-columns:1fr;gap:1rem;}
+  .proc-steps{grid-template-columns:1fr 1fr;}
+  .proc-steps::before{display:none;}
+  .proof-nums{grid-template-columns:repeat(3,1fr);}
+  .pain-grid{grid-template-columns:1fr 1fr;}
+  .tbar-inner{gap:1.5rem;}
+}
+@media(max-width:480px){
+  .pain-grid,.proc-steps{grid-template-columns:1fr;}
+  .proof-nums{grid-template-columns:1fr;gap:.6rem;}
+  .h-btns,.fcta-btns{flex-direction:column;align-items:flex-start;}
+  .fcta-btns{align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="#hero" class="nlogo">
+    <div class="nmark">VA</div>
+    <span class="ntxt">remote<span>impact</span></span>
+  </a>
+  <ul class="nlinks" id="nlinks">
+    <li><a href="#pain">Pain Points</a></li>
+    <li><a href="#why">Why Me</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="https://wa.me/573008221436" target="_blank" class="ncta">Book a Call</a></li>
+  </ul>
+  <div class="hbg" id="hbg" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="h-orb h-orb1"></div>
+  <div class="h-orb h-orb2"></div>
+  <div class="h-line hl1"></div>
+  <div class="h-line hl2"></div>
+  <div class="h-star hs1">✦</div>
+  <div class="h-star hs2">✦</div>
+  <div class="h-star hs3">✦</div>
+
+  <div class="h-inner">
+    <!-- LEFT -->
+    <div>
+      <div class="h-pill rv">✦ &nbsp;Executive Virtual Assistant</div>
+      <h1 class="h-title rv d1">
+        Executive Virtual Support<br/>
+        for <em>Busy Founders</em><br/>
+        and Growing Businesses
+      </h1>
+      <p class="h-sub rv d2">
+        I provide executive support, strategic research, client communication, and business operations assistance — so you can focus on what actually moves the needle.
+      </p>
+      <div class="h-btns rv d2">
+        <a href="https://wa.me/573008221436" target="_blank" class="bp">📅 Book a Free Discovery Call</a>
+        <a href="#services" class="bo">View My Services ↓</a>
+      </div>
+      <div class="trust-row rv d3">
+        <div class="tr-item">
+          <div class="flags">🇺🇸🇨🇦🇬🇧🇪🇺</div>
+          <span>Serving USA, Canada, UK & Europe</span>
+        </div>
+        <div class="tr-div"></div>
+        <div class="tr-item">
+          <span>🔒 100% Remote &amp; Confidential</span>
+        </div>
+        <div class="tr-div"></div>
+        <div class="tr-item">
+          <span>🌐 Bilingual EN / ES</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — Logo SVG + Stats -->
+    <div class="h-right rvr">
+      <!-- Stylised logo mark SVG, inspired by VAremoteimpact identity -->
+      <svg class="h-logo-svg" viewBox="0 0 320 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="VAremoteimpact brand mark">
+        <!-- Background subtle circle -->
+        <circle cx="160" cy="140" r="115" fill="rgba(253,242,235,0.04)" stroke="rgba(253,242,235,0.08)" stroke-width="1"/>
+        <!-- Horse body silhouette -->
+        <ellipse cx="155" cy="168" rx="62" ry="28" fill="rgba(201,168,76,0.18)" />
+        <!-- Horse legs -->
+        <line x1="120" y1="190" x2="112" y2="218" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="136" y1="194" x2="131" y2="222" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="168" y1="194" x2="172" y2="222" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="184" y1="190" x2="194" y2="215" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Horse neck + head -->
+        <path d="M190 162 Q210 148 206 130 Q204 118 196 115 Q185 112 182 122 Q178 132 190 138 Z" fill="#c9a84c" opacity=".85"/>
+        <!-- Rider body -->
+        <ellipse cx="162" cy="152" rx="16" ry="20" fill="#fdf2eb" opacity=".82"/>
+        <!-- Rider head -->
+        <circle cx="162" cy="128" r="10" fill="#fdf2eb" opacity=".82"/>
+        <!-- Quill / pen diagonal -->
+        <line x1="80" y1="220" x2="210" y2="90" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" opacity=".9"/>
+        <path d="M78 222 L90 200 L100 215 Z" fill="#c9a84c" opacity=".7"/>
+        <!-- Lightning bolt accent -->
+        <path d="M148 200 L138 222 L148 218 L140 240" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+        <!-- 4-pointed star spark -->
+        <path d="M230 100 L233 110 L243 113 L233 116 L230 126 L227 116 L217 113 L227 110 Z" fill="#c9a84c" opacity=".9"/>
+        <!-- Small stars -->
+        <path d="M88 88 L90 94 L96 96 L90 98 L88 104 L86 98 L80 96 L86 94 Z" fill="#c9a84c" opacity=".5"/>
+        <!-- VA text -->
+        <text x="128" y="270" font-family="Playfair Display, serif" font-size="38" font-weight="700" fill="#fdf2eb" opacity=".92">VA</text>
+        <!-- remote impact small text -->
+        <text x="93" y="290" font-family="Inter, sans-serif" font-size="11" font-weight="500" fill="rgba(253,242,235,0.5)" letter-spacing="4">REMOTE IMPACT</text>
+        <!-- Bottom decorative line with star -->
+        <line x1="85" y1="296" x2="148" y2="296" stroke="rgba(253,242,235,0.2)" stroke-width="0.75"/>
+        <text x="152" y="299" font-size="8" fill="#c9a84c" opacity=".7">✦</text>
+        <line x1="158" y1="296" x2="235" y2="296" stroke="rgba(253,242,235,0.2)" stroke-width="0.75"/>
+      </svg>
+
+      <div class="h-stats">
+        <div class="h-stat">
+          <div class="stat-n">ES/EN</div>
+          <div class="stat-l">Bilingual Professional</div>
+        </div>
+        <div class="h-stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Remote & Available</div>
+        </div>
+        <div class="h-stat">
+          <div class="stat-n">IR·PS</div>
+          <div class="stat-l">Academic Background</div>
+        </div>
+        <div class="h-stat">
+          <div class="stat-n">24h</div>
+          <div class="stat-l">Response Commitment</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div id="tbar">
+  <div class="tbar-inner">
+    <div class="tbar-item">🎓 Int'l Relations Graduate</div>
+    <div class="tbar-item">📋 Executive Research Specialist</div>
+    <div class="tbar-item">🌐 Cross-Cultural Communication</div>
+    <div class="tbar-item">🔒 Confidentiality Guaranteed</div>
+    <div class="tbar-item">⚡ Fast Onboarding</div>
+  </div>
+</div>
+
+<!-- ═══ PAIN POINTS ═══ -->
+<section id="pain" class="section">
+  <div class="container">
+    <div class="tc rv">
+      <p class="sec-eye">The Problem</p>
+      <h2 class="sec-title">Is your business slowing down because<br/>you're doing everything yourself?</h2>
+      <p class="sec-sub">Every hour you spend in your inbox or scheduling meetings is an hour not spent growing your business. Sound familiar?</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card rv d1">
+        <span class="pc-icon">📬</span>
+        <div class="pc-text">Overflowing Inbox?</div>
+        <div class="pc-sub">Hundreds of unread emails pulling you away from high-value work</div>
+      </div>
+      <div class="pain-card rv d2">
+        <span class="pc-icon">🔔</span>
+        <div class="pc-text">Missed Follow-Ups?</div>
+        <div class="pc-sub">Losing deals and relationships because no one's tracking the pipeline</div>
+      </div>
+      <div class="pain-card rv d3">
+        <span class="pc-icon">📅</span>
+        <div class="pc-text">Scheduling Chaos?</div>
+        <div class="pc-sub">Double bookings, time zone errors, and meetings that kill your focus</div>
+      </div>
+      <div class="pain-card rv d1">
+        <span class="pc-icon">⏳</span>
+        <div class="pc-text">Communication Delays?</div>
+        <div class="pc-sub">Clients waiting days for a response while your reputation suffers</div>
+      </div>
+      <div class="pain-card rv d2">
+        <span class="pc-icon">🔄</span>
+        <div class="pc-text">Administrative Bottlenecks?</div>
+        <div class="pc-sub">Repetitive tasks eating the hours you need for strategic thinking</div>
+      </div>
+    </div>
+    <div class="pain-cta rv">
+      <a href="https://wa.me/573008221436" target="_blank" class="bd">Let's Fix Your Workflow →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY ME ═══ -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="tc rv">
+      <p class="sec-eye">Why Founders Choose to Work With Me</p>
+      <h2 class="sec-title" style="color:var(--cr);">Not a task-executor.<br/>A strategic partner.</h2>
+      <p class="sec-sub">My background in International Relations gives me an edge most VAs simply don't have — analytical depth, cross-cultural fluency, and executive-level communication.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card rv d1">
+        <div class="wy-icon">🎓</div>
+        <div class="wy-title">Strategic Background</div>
+        <div class="wy-sub">International Relations & Business Communication</div>
+        <p class="wy-desc">A rare academic foundation that enables sophisticated research synthesis, policy analysis, and strategic business intelligence — far beyond standard VA capabilities.</p>
+      </div>
+      <div class="why-card rv d2">
+        <div class="wy-icon">🤝</div>
+        <div class="wy-title">Executive Presence</div>
+        <div class="wy-sub">Professional communication & discretion</div>
+        <p class="wy-desc">I represent your brand with the same level of professionalism you'd expect from a C-suite EA. Your clients and partners will notice the difference immediately.</p>
+      </div>
+      <div class="why-card rv d3">
+        <div class="wy-icon">🔍</div>
+        <div class="wy-title">Analytical Thinking</div>
+        <div class="wy-sub">Research-driven decision support</div>
+        <p class="wy-desc">I don't just gather information — I synthesize it. You receive structured, decision-ready intelligence that saves hours and eliminates guesswork.</p>
+      </div>
+      <div class="why-card rv d4">
+        <div class="wy-icon">⚡</div>
+        <div class="wy-title">Reliable Execution</div>
+        <div class="wy-sub">Deadline-focused & proactive</div>
+        <p class="wy-desc">I anticipate needs before you voice them, flag issues before they become problems, and deliver on time — every time. Zero micromanagement required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="rv">
+      <p class="sec-eye">What I Do</p>
+      <h2 class="sec-title">Services Built Around Your Results,<br/>Not Just Your Tasks</h2>
+      <p class="sec-sub">I don't manage emails — I reclaim your time. I don't "do research" — I deliver intelligence that drives decisions.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card rv d1">
+        <div class="svc-num">01</div>
+        <div class="svc-title">Executive Support</div>
+        <div class="svc-outcome">"I help founders regain full control of their time and communication."</div>
+        <p class="svc-desc">Professional inbox management, calendar architecture, and stakeholder communication handled with the discretion and judgment of a seasoned executive assistant.</p>
+        <ul class="svc-list">
+          <li>Inbox management &amp; prioritization</li>
+          <li>Professional drafting in your voice</li>
+          <li>Calendar design &amp; scheduling</li>
+          <li>Stakeholder follow-up systems</li>
+        </ul>
+      </div>
+      <div class="svc-card rv d2">
+        <div class="svc-num">02</div>
+        <div class="svc-title">Strategic Research</div>
+        <div class="svc-outcome">"I deliver decision-ready business intelligence — not raw data."</div>
+        <p class="svc-desc">Market research, competitor analysis, and executive briefings synthesized with academic precision. Get structured, actionable intelligence without spending your own hours on it.</p>
+        <ul class="svc-list">
+          <li>Market &amp; competitor intelligence</li>
+          <li>Vendor &amp; partner due diligence</li>
+          <li>Executive summaries &amp; briefings</li>
+          <li>Industry trend monitoring</li>
+        </ul>
+      </div>
+      <div class="svc-card rv d3">
+        <div class="svc-num">03</div>
+        <div class="svc-title">Client Communication</div>
+        <div class="svc-outcome">"I help businesses maintain trust, responsiveness, and reputation."</div>
+        <p class="svc-desc">I manage your client-facing communication with the warmth and professionalism your brand deserves — so no relationship is ever left on read.</p>
+        <ul class="svc-list">
+          <li>Client inquiry management</li>
+          <li>Follow-up &amp; nurture sequences</li>
+          <li>Onboarding communication</li>
+          <li>CRM updates &amp; relationship tracking</li>
+        </ul>
+      </div>
+      <div class="svc-card rv d4">
+        <div class="svc-num">04</div>
+        <div class="svc-title">Workflow Optimization</div>
+        <div class="svc-outcome">"I improve operational efficiency — eliminating bottlenecks before they cost you."</div>
+        <p class="svc-desc">From SOP documentation to process redesign, I identify and eliminate the administrative friction slowing your team down — then systematize what works.</p>
+        <ul class="svc-list">
+          <li>SOP creation &amp; documentation</li>
+          <li>Admin process streamlining</li>
+          <li>Tool setup &amp; optimization</li>
+          <li>Cross-functional coordination</li>
+        </ul>
+      </div>
+    </div>
+    <div class="svc-cta rv">
+      <a href="https://wa.me/573008221436" target="_blank" class="bp">Hire Executive Support Today ✦</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AUTHORITY / SOCIAL PROOF ═══ -->
+<section id="auth">
+  <div class="container">
+    <div class="rv tc">
+      <p class="sec-eye">Professional Authority</p>
+      <h2 class="sec-title" style="color:var(--cr);">Credentials That Back<br/>Every Promise I Make</h2>
+    </div>
+    <div class="auth-grid">
+      <!-- Left: quote + tags -->
+      <div class="rv">
+        <div class="auth-quote">
+          <p>"I don't just support operations — I understand them. My academic training in International Relations means I bring strategic thinking and analytical rigor to every engagement, not just task execution."</p>
+        </div>
+        <div class="auth-tags">
+          <span class="auth-tag">Executive Research</span>
+          <span class="auth-tag">Business Writing</span>
+          <span class="auth-tag">Strategic Analysis</span>
+          <span class="auth-tag">Cross-Cultural Communication</span>
+          <span class="auth-tag">CRM Management</span>
+          <span class="auth-tag">Bilingual EN/ES</span>
+          <span class="auth-tag">Client Relations</span>
+          <span class="auth-tag">Administrative Operations</span>
+        </div>
+        <div class="proof-nums">
+          <div class="proof-n">
+            <div class="pn-val">100%</div>
+            <div class="pn-lbl">Remote & Global</div>
+          </div>
+          <div class="proof-n">
+            <div class="pn-val">2+</div>
+            <div class="pn-lbl">Years Executive Support</div>
+          </div>
+          <div class="proof-n">
+            <div class="pn-val">4+</div>
+            <div class="pn-lbl">Countries Served</div>
+          </div>
+        </div>
+      </div>
+      <!-- Right: credential cards -->
+      <div class="cred-cards rv rvr">
+        <div class="cred-card">
+          <div class="cred-ico">🎓</div>
+          <div>
+            <div class="cred-title">B.S. International Relations & Political Studies</div>
+            <div class="cred-sub">Universidad Militar Nueva Granada, Bogotá, Colombia</div>
+          </div>
+        </div>
+        <div class="cred-card">
+          <div class="cred-ico">📜</div>
+          <div>
+            <div class="cred-title">Diploma in Project Management & International Cooperation</div>
+            <div class="cred-sub">Universidad Militar Nueva Granada, Bogotá</div>
+          </div>
+        </div>
+        <div class="cred-card">
+          <div class="cred-ico">🏆</div>
+          <div>
+            <div class="cred-title">HubSpot Social Media & Email Marketing Certifications</div>
+            <div class="cred-sub">In progress — 2025</div>
+          </div>
+        </div>
+        <div class="cred-card">
+          <div class="cred-ico">🌐</div>
+          <div>
+            <div class="cred-title">English C1 Advanced · Spanish Native</div>
+            <div class="cred-sub">Professional bilingual communication in both languages</div>
+          </div>
+        </div>
+        <div class="cred-card">
+          <div class="cred-ico">💼</div>
+          <div>
+            <div class="cred-title">Background in Multicultural & International Environments</div>
+            <div class="cred-sub">UNDP collaboration · Int'l project coordination experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section id="process">
+  <div class="container">
+    <div class="tc rv">
+      <p class="sec-eye">How We Work</p>
+      <h2 class="sec-title">Seamless Onboarding.<br/>Immediate Impact.</h2>
+      <p class="sec-sub">From first contact to full integration — efficiently, professionally, and on your terms.</p>
+    </div>
+    <div class="proc-steps">
+      <div class="proc-step rv d1">
+        <div class="ps-num">01</div>
+        <div class="ps-title">Discovery Call</div>
+        <p class="ps-desc">We align on your goals, pain points, and what ideal executive support looks like for your business.</p>
+      </div>
+      <div class="proc-step rv d2">
+        <div class="ps-num">02</div>
+        <div class="ps-title">Custom Proposal</div>
+        <p class="ps-desc">You receive a tailored service package — no generic plans, no hidden fees, no lock-ins.</p>
+      </div>
+      <div class="proc-step rv d3">
+        <div class="ps-num">03</div>
+        <div class="ps-title">Fast Onboarding</div>
+        <p class="ps-desc">I integrate into your tools and workflows within days — minimal disruption, maximum output.</p>
+      </div>
+      <div class="proc-step rv d4">
+        <div class="ps-num">04</div>
+        <div class="ps-title">Ongoing Partnership</div>
+        <p class="ps-desc">Regular check-ins, transparent reporting, and a constant commitment to your growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section id="fcta">
+  <div class="container">
+    <div class="fcta-inner rv">
+      <span class="fcta-eye">✦ &nbsp; The Next Step</span>
+      <h2 class="fcta-title">Ready to Reclaim<br/>Your Time?</h2>
+      <p class="fcta-sub">Let me handle your operations, research, and client communication — while you focus on what only you can do: lead and grow.</p>
+      <div class="fcta-btns">
+        <a href="https://wa.me/573008221436" target="_blank" class="bp">📅 Book Your Free Call Now</a>
+        <a href="mailto:seb.remoteimpact@gmail.com" class="bo">✉ Send an Email</a>
+      </div>
+      <div class="soc-row">
+        <a href="https://wa.me/573008221436" target="_blank" class="soc-link" title="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="currentColor"/><path d="M12.004 0C5.374 0 0 5.373 0 12c0 2.117.554 4.107 1.523 5.832L.054 23.25l5.553-1.44A11.945 11.945 0 0012.004 24C18.628 24 24 18.626 24 12c0-6.627-5.372-12-11.996-12zm0 21.818a9.808 9.808 0 01-5.032-1.386l-.36-.214-3.294.854.876-3.197-.236-.372A9.797 9.797 0 012.18 12c0-5.42 4.409-9.818 9.824-9.818 5.418 0 9.823 4.398 9.823 9.818 0 5.42-4.405 9.818-9.823 9.818z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61570768679920" target="_blank" class="soc-link" title="Facebook">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/sebremoteimpact/" target="_blank" class="soc-link" title="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="mailto:seb.remoteimpact@gmail.com" class="soc-link" title="Email">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p style="margin-bottom:.6rem;">
+    <strong style="color:rgba(253,242,235,.6);font-family:'Playfair Display',serif;">VAremoteimpact</strong>
+    &nbsp;·&nbsp; Executive Virtual Assistant &nbsp;·&nbsp; Bogotá, Colombia
+  </p>
+  <p>
+    <a href="mailto:seb.remoteimpact@gmail.com">seb.remoteimpact@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://wa.me/573008221436" target="_blank">+57 300 822 1436</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.instagram.com/sebremoteimpact/" target="_blank">@sebremoteimpact</a>
+  </p>
+  <p style="margin-top:.75rem;">© 2025 VAremoteimpact. All rights reserved.</p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/573008221436" target="_blank" class="wa" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 0C5.374 0 0 5.373 0 12c0 2.117.554 4.107 1.523 5.832L.054 23.25l5.553-1.44A11.945 11.945 0 0012.004 24C18.628 24 24 18.626 24 12c0-6.627-5.372-12-11.996-12zm0 21.818a9.808 9.808 0 01-5.032-1.386l-.36-.214-3.294.854.876-3.197-.236-.372A9.797 9.797 0 012.18 12c0-5.42 4.409-9.818 9.824-9.818 5.418 0 9.823 4.398 9.823 9.818 0 5.42-4.405 9.818-9.823 9.818z"/></svg>
+</a>
+
+<script>
+// Nav scroll behavior
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('sc', window.scrollY > 40);
+}, {passive:true});
+
+// Mobile nav
+function toggleNav() {
+  document.getElementById('nlinks').classList.toggle('open');
+}
+document.querySelectorAll('#nlinks a').forEach(a => a.addEventListener('click', () => document.getElementById('nlinks').classList.remove('open')));
+
+// Scroll reveal with Intersection Observer
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el => obs.observe(el));
+
+// Nav active on load (transparent → dark on scroll)
+if (window.scrollY > 40) nav.classList.add('sc');
+</script>
+</body>
+</html>
